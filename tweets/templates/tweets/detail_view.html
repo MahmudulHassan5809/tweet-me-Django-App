@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+    	{{ object.content }}<br>
+		{{ object.user }}<br>
+		{{ object.timestamp }}<br>
+		{{ object.timestamp|timesince }} ago<br>
+    </div>
+{% endblock content %}

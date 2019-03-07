@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		{% if title %}
+			<title>TweetMe--{{title}}</title>
+		{% else %}
+			<title>TweetMe</title>
+		{% endif %}
+
+
+		<!-- Bootstrap CSS -->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<!-- Custom styles for this template -->
+		<link href="{% static "css/style.css" %}" rel="stylesheet">
+	</head>
+
+	<body>
+
+		{% include "reply_modal.html" %}
+		{% include "navbar.html" %}
+
+		<div class="container">
+			{% block content %}{% endblock content %}
+		</div>
+
+
+		<!-- jQuery first, then Popper.js and Bootstrap JS. -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		<script src="{% static "js/main.js" %}"></script>
+		<script src="{% static "js/auto_search.js" %}"></script>
+	</body>
+</html>

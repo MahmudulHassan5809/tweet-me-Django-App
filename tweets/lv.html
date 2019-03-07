@@ -1,0 +1,24 @@
+{% for obj in object_list %}
+		<div class="media">
+		 {% if obj.image %}
+			<img src="..." class="mr-3" alt="...">
+		 {% endif %}
+
+		  <div class="media-body">
+		   	{{obj.content}}<br>
+		   	via {{obj.user}} ||  {{obj.timestamp|timesince}} ago || <a href="{{obj.get_absolute_url}}">View</a>
+		  </div>
+		</div>
+
+		{% if request.user.id == obj.user.id %}
+			<a href="{% url "tweets:delete" pk=obj.id %}">Delete</a>
+			<a href="{% url "tweets:update" pk=obj.id %}">Edit</a>
+		{% endif %}
+		<hr>
+		{% empty %}
+			{% if request.GET.q %}
+				<p>No Tweets Found.</p>
+			{% else %}
+				<p>No Tweets Yet.</p>
+			{% endif %}
+	    {% endfor %}
